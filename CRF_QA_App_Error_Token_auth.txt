@@ -1,0 +1,29 @@
+127.0.0.1 - - [14/May/2019 11:29:52] "GET /api/auth/token HTTP/1.1" 401 -
+127.0.0.1 - - [14/May/2019 11:30:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [14/May/2019 11:30:12] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/May/2019 11:30:15] "GET /register HTTP/1.1" 200 -
+127.0.0.1 - - [14/May/2019 11:30:25] "POST /register HTTP/1.1" 302 -
+127.0.0.1 - - [14/May/2019 11:30:25] "GET /login HTTP/1.1" 200 -
+auth request: {'username': 'abc', 'password': 'abc'}
+[2019-05-14 11:30:30,541] ERROR in app: Exception on /api/auth/token [GET]
+Traceback (most recent call last):
+  File "c:\users\agupt155\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\agupt155\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\agupt155\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\agupt155\appdata\local\programs\python\python37\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\agupt155\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\agupt155\appdata\local\programs\python\python37\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\agupt155\Documents\P.E.R.S.O.N.A.L\Interviews\CRF-QA-Interview\demo_app\api.py", line 32, in wrapped_call
+    return call(*args, **kwargs)
+  File "C:\Users\agupt155\Documents\P.E.R.S.O.N.A.L\Interviews\CRF-QA-Interview\demo_app\api.py", line 57, in create_token
+    token = base64.b64encode(str(random.getrandbits(128)))
+  File "c:\users\agupt155\appdata\local\programs\python\python37\lib\base64.py", line 58, in b64encode
+    encoded = binascii.b2a_base64(s, newline=False)
+TypeError: a bytes-like object is required, not 'str'
+127.0.0.1 - - [14/May/2019 11:30:30] "GET /api/auth/token HTTP/1.1" 500 -
