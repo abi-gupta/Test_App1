@@ -1,6 +1,6 @@
 
 
-# CRF Demo web App #
+# Demo web App #
 
 ## Installation Instructions ##
 
