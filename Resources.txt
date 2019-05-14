@@ -1,0 +1,46 @@
+*** Variables ***
+${Login_URL}      http://localhost:8080/
+${Browser}        chrome
+${temp}
+
+*** Keywords ***
+Open login page
+    Open Browser    ${Login_URL}    ${Browser}
+    Click Element   //a[contains(@href,"/login")]
+
+Open Registration page
+    Open Browser    ${Login_URL}    ${Browser}
+    Click Element   //a[contains(@href,"/register")]
+
+Enter Username
+    [Arguments]    ${username}
+    Input Text    //input[contains(@id,"username")]   ${username}
+
+Enter password
+    [Arguments]    ${password}
+    Input Text    //input[contains(@id,"password")]   ${password}
+
+Click login button
+    Click Button    //input[contains(@value,"Log In")]
+
+Login should be successful
+    Page Should Contain    User Information
+
+Login should fail
+    Page Should Contain    Login Failure
+
+Enter firstname
+    [Arguments]    ${firstname}
+    Input Text    //input[contains(@id,"firstname")]   ${firstname}
+
+Enter familyname
+    [Arguments]    ${familyname}
+    Input Text    //input[contains(@id,"lastname")]   ${familyname}
+
+Enter Phone
+    [Arguments]    ${phone}
+    Input Text    //input[contains(@id,"phone")]   ${phone}
+
+Click Register button
+    click element   //input[contains(@value,"Register")]
+
